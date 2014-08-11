@@ -1,6 +1,6 @@
 # canclón
 
-Flexible template name resolution for Django class-based views.
+Template name resolution for Django class-based views.
 
 ## Introduction
 
