@@ -10,7 +10,7 @@ class TemplateNameResolverMixin(object):
     
     template_suffixes = ('',)
     template_suffix_separators = ('-',)
-    template_extensions = 'jade', 'html'
+    template_extensions = ('html',)
 
     def __template_name_parts(self):
         for suffix in self.template_suffixes:
