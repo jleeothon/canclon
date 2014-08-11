@@ -18,19 +18,22 @@ class TemplateNameResolverMixin(object):
                 for extension in self.template_extensions:
                     yield suffix, separator, extension
 
+    def __format_template_names(self, suffix, separator, extension):
+        args = (
+            self.model._meta.app_label,
+            self.model._meta.model_name,
+            (separator + suffix if suffix else ""),
+            extension,
+        )
+        name = '%s/%s%s.%s' % args
+        return name
+
     def __template_names(self):
         """
         Generator function that resolves template names.
         """
         for suffix, separator, extension in self.__template_name_parts():
-            args = (
-                    self.model._meta.app_label,
-                    self.model._meta.model_name,
-                    (separator + suffix if suffix else ""),
-                    extension,
-                    )
-            name = '%s/%s%s.%s' % args
-            yield name
+            yield self.__format_template_names(suffix, separator, extension)
 
     def get_template_names(self):
         if self.template_name is not None:
