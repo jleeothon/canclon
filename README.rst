@@ -26,7 +26,11 @@ Warning:
 Getting started
 ---------------
 
-Copy and paste whatever you want.
+Use the command::
+
+    pip install git+git://github.com/jleeothon/canclon.git
+
+Voilà, instalation finished.
 
 -------
 Options
@@ -50,8 +54,17 @@ Based on suffixes, suffix joints and extensions, a list of all posible combinati
 
 When a suffix is a null string, the separator and suffix are omitted.
 
----------
-Proposals
----------
+---------------
+Troubleshooting
+---------------
+
+If you stumble upon any crash or bug:
+
+1. don't use my software ☆⌒(＞。≪)
+2. file a bug in the "issues" section （〃・ω・〃）
+
+---------------------
+Enhancement proposals
+---------------------
 
 If Django could receive a lazy object for ``get_template_names`` instead of a pre-evaluated iterable, this implementation would be both more time-efficient and space-efficient.
