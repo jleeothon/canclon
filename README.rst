@@ -26,6 +26,11 @@ Warning:
 Getting started
 ---------------
 
+You first need pip_ installed. Also, you might want a virtualenv_ (which will usually give you a scoped pip, too).
+
+.. _pip: https://pypi.python.org/pypi/pip
+.. _virtualenv: http://virtualenv.readthedocs.org/en/latest/
+
 Use the command::
 
     pip install git+git://github.com/jleeothon/canclon.git
