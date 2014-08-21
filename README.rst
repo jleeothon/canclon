@@ -8,15 +8,19 @@ Template name resolution for Django class-based views.
 
 Django's default method for template name resolution has a couple of not-so-niceties for more advanced developers, such as default template suffixes appended with an underscore (yay for dashes) and an assumption of HTML files (you might want to include other extension, such as `.jade`). This project gives you the flexibility of having everybody need to stick to a set of standards, or as well phase slowly into a standard by permitting more template names to be selected.
 
-This project is released under an MIT License.
-
 Warning:
 
 > Including this functionality in your project makes template name resolution "DRYier" and more flexible but a bit slower.
 
 ## Getting started
 
-Copy and paste whatever you want.
+To install the latest official release, use::
+
+    https://github.com/jleeothon/canclon
+
+To install the latest version, use::
+
+    pip install git+git://github.com/jleeothon/canclon.git
 
 ## Options
 

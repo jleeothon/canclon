@@ -7,14 +7,14 @@ README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
-    name='canclon',
-    version='0.12',
+    name='django-canclon',
+    version='0.1.3',
     packages=['canclon'],
     include_package_data=True,
     license='MIT',
     description='Template name resolution for Django class-based views.',
     long_description=README,
-    # url='http://www.example.com/',
+    url='https://github.com/jleeothon/canclon',
     author='Johnny Lee',
     author_email='jleeothon@outlook.com',
     classifiers=[
