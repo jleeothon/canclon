@@ -47,8 +47,6 @@ Voilà, instalation finished.
 Options
 -------
 
-``template_flags`` are variable names that are set to ``True`` for your template. **More insight into the usefulness of this, later**.
-
 ``template_suffixes`` are usually actions associated with the model for which the template will serve, e.g. `list`, `edit`, ``confirm-delete``.
 
 ``template_suffix_joints`` is the separators between a model and a suffix. The default is a singleton (a 1-tuple) with a dash (``tuple('-')``).
@@ -69,10 +67,7 @@ When a suffix is a null string, the separator and suffix are omitted.
 Troubleshooting
 ---------------
 
-If you stumble upon any crash or bug:
-
-1. don't use my software ☆⌒(＞。≪)
-2. file a bug in the "issues" section （〃・ω・〃）
+If you stumble upon bug, file a bug in the "issues" section. If possible, helping track and solve the bug would be cool.
 
 ---------------------
 Enhancement proposals
