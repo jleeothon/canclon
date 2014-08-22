@@ -2,13 +2,13 @@
 canclón
 =======
 
-Template name resolution for Django class-based views.
+Template name resolution for Django class-based views
 
 ------------
 Introduction
 ------------
 
-*canclón* is a local name for the horned screamer, `Anhima cornuta`_. This is a group of `class-based views`_ for Django_. The simple flexibility and DRYness_ of this group of classes is comparable to that of horned screamer's horn_.
+*Canclón* is a local name for the horned screamer, `Anhima cornuta`_. This is a group of `class-based views`_ for Django_. The simple flexibility and DRYness_ of this group of classes is comparable to that of horned screamer's horn_.
 
 .. _`Anhima cornuta`: https://en.wikipedia.org/wiki/Horned_screamer
 .. _`class-based views`: https://docs.djangoproject.com/en/dev/topics/class-based-views/
@@ -35,7 +35,7 @@ Use the command::
 
 To install the latest official release, use::
 
-    https://github.com/jleeothon/canclon
+    pip install django-canclon
 
 To install the latest version, use::
 

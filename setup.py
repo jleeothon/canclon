@@ -12,7 +12,7 @@ setup(
     packages=['canclon'],
     include_package_data=True,
     license='MIT',
-    description='Template name resolution for Django class-based views.',
+    description='Template name resolution for Django class-based views',
     long_description=README,
     url='https://github.com/jleeothon/canclon',
     author='Johnny Lee',
