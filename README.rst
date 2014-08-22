@@ -16,11 +16,8 @@ Introduction
 .. _DRYness: http://en.wikipedia.org/wiki/Don't_repeat_yourself
 .. _horn: https://www.youtube.com/watch?v=1esf6WNdvso
 
-<<<<<<< HEAD
-=======
-Django's default method for template name resolution has a couple of not-so-niceties for more advanced developers, such as default template suffixes appended with an underscore (yay for dashes) and an assumption of HTML files (you might want to include other extension, such as `.jade`). This project gives you the flexibility of having everybody need to stick to a set of standards, or as well phase slowly into a standard by permitting more template names to be selected.
+Django's default method for template name resolution has a couple of not-so-niceties for more advanced developers, such as default template suffixes appended with an underscore (yay for dashes) and an assumption of HTML files (you might want to include other extension, such as ``.jade``). This project gives you the flexibility of having everybody need to stick to a set of standards, or as well phase slowly into a standard by permitting more template names to be selected.
 
->>>>>>> FETCH_HEAD
 Warning:
 
     Including this functionality in your project makes template name resolution DRYier and more flexible but a bit slower.
@@ -36,15 +33,12 @@ You first need pip_ installed. Also, you might want a virtualenv_ (which will us
 
 Use the command::
 
-<<<<<<< HEAD
 To install the latest official release, use::
 
     https://github.com/jleeothon/canclon
 
 To install the latest version, use::
 
-=======
->>>>>>> FETCH_HEAD
     pip install git+git://github.com/jleeothon/canclon.git
 
 Voilà, instalation finished.
