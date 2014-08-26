@@ -22,8 +22,19 @@ Warning:
 
     Including this functionality in your project makes template name resolution DRYier and more flexible but a bit slower.
 
+Canclón's ``TemplateNameResolverMixin`` allows you to calculate the template name for a class-based view using:
+
+- The class-based view's ``model`` name, automatically calculated.
+- A list of suffixes, e.g. your Create view could be "product-create.html", "product-edit.html" or "product-form.html".
+- A list of separators, i.e. take "product-create.html" or "product_create.html".
+- A list of extensions, i.e. "html", "jade".
+
+Warning:
+
+    You will override Django's template name resolution method.
+
 ---------------
-Getting started
+Installation
 ---------------
 
 You first need pip_ installed. Also, you might want a virtualenv_ (which will usually give you a scoped pip, too).
@@ -43,15 +54,32 @@ To install the latest version, use::
 
 Voilà, instalation finished.
 
--------
-Options
--------
+-----
+Usage
+-----
 
-``template_suffixes`` are usually actions associated with the model for which the template will serve, e.g. `list`, `edit`, ``confirm-delete``.
+Extend ``canclon.TemplateNameResolverMixin`` to your class to enable functionality.
 
-``template_suffix_joints`` is the separators between a model and a suffix. The default is a singleton (a 1-tuple) with a dash (``tuple('-')``).
+Override the class' ``template_suffixes``, ``template_suffix_separators`` and ``template_extensions``::
 
-``template_extensions`` is the list of file extensions to look for, the default is a singleton of `'html'`. You can include other formats such as ``.jade``.
+    class ProductCreateView(TemplateNameResolverMixin, CreateView):
+        template_suffixes = ('create', 'editing', 'form')
+        template_suffix_separators = ('-', '_')
+        template_extensions = ('html', 'jade')
+
+The default separator is a dash (``'-'``) and de default extension is ``html``.
+
+You can also set the default separators and extensions in your ``settings.py``::
+
+    # settings.py
+
+    template_suffix_separators = ('-*-',) # feeling fancy in this project
+    template_extensions = ('jade',)
+
+..
+
+    **Warning!** Not overriding template_suffixes will result in no template name candidates being produced.
+
 
 Based on suffixes, suffix joints and extensions, a list of all posible combinations is returned. They take the form ``1/234.5``, where:
 
@@ -61,7 +89,17 @@ Based on suffixes, suffix joints and extensions, a list of all posible combinati
 - 4 is the suffix
 - 5 is the file extension
 
-When a suffix is a null string, the separator and suffix are omitted.
+When a suffix is an empty string, the separator and suffix are omitted.
+
+---------------
+Recommendations
+---------------
+
+For any new category of class-based views, e.g. a "Search" view, create a custom inheritable class to avoid repeating the suffix and separator everywhere. As such, TemplateNameResolverMixin will be your class' "grandparent".
+
+For single custom class-based views, inherit direct from TemplateNameResolverMixin.
+
+Don't use too many suffixes, extensions or separators, as this will make resolution slower.
 
 ---------------
 Troubleshooting
@@ -73,4 +111,16 @@ If you stumble upon bug, file a bug in the "issues" section. If possible, helpin
 Enhancement proposals
 ---------------------
 
-If Django could receive a lazy object for ``get_template_names`` instead of a pre-evaluated iterable, this implementation would be both more time-efficient and space-efficient.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Support "atoms" apart from iterables
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Using ``template_suffixes`` = '-' instead of ``('-',)`` may be nice.
+
+~~~~~~~~~~~~~~~
+Lazy evaluation
+~~~~~~~~~~~~~~~
+
+Not exactly like I can do anything about it.
+
+If Django could receive a lazy object for ``get_template_names`` instead of a pre-evaluated iterable, this implementation would be both more time-efficient and space-efficient in best and average scenarios.
