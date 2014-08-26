@@ -73,8 +73,8 @@ You can also set the default separators and extensions in your ``settings.py``::
 
     # settings.py
 
-    template_suffix_separators = ('-*-',) # feeling fancy in this project
-    template_extensions = ('jade',)
+    TEMPLATE_SUFFIX_SEPARATORS = ('-*-',) # feeling fancy in this project
+    TEMPLATE_EXTENSIONS = ('jade',)
 
 ..
 
