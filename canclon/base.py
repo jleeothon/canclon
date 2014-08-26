@@ -19,7 +19,7 @@ def default_extensions():
     global _default_extensions
     if not _default_extensions:
         try:
-            _default_extensions = settings.default_extensions
+            _default_extensions = settings.template_extensions
         except AttributeError:
             _default_extensions = ('html',)
     return _default_extensions
@@ -39,7 +39,7 @@ class TemplateNameResolverMixin(object):
                 for extension in self.template_extensions:
                     yield suffix, separator, extension
 
-    def __format_template_names(self, suffix, separator, extension):
+    def __format_template_name(self, suffix, separator, extension):
         args = (
             self.model._meta.app_label,
             self.model._meta.model_name,
@@ -54,7 +54,7 @@ class TemplateNameResolverMixin(object):
         Generator function that resolves template names.
         """
         for suffix, separator, extension in self.__template_name_parts():
-            yield self.__format_template_names(suffix, separator, extension)
+            yield self.__format_template_name(suffix, separator, extension)
 
     def get_template_names(self):
         if self.template_name is not None:
