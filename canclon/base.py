@@ -1,26 +1,16 @@
 from django.conf import settings
 
+
 __all__ = (
     'TemplateNameResolverMixin',
 )
 
-_default_separators = None
-def default_separators():
-    global _default_separators
-    if not _default_separators:
-        _default_separators = getattr(settings,
-                                      'TEMPLATE_SUFFIX_SEPARATORS',
-                                      ('-',))
-    return _default_separators
 
-_default_extensions = None
-def default_extensions():
-    global _default_extensions
-    if not _default_extensions:
-        _default_separators = getattr(settings,
-                                      'TEMPLATE_EXTENSIONS',
-                                      ('html',))
-    return _default_extensions
+_default_separators = getattr(settings, 'TEMPLATE_SUFFIX_SEPARATORS', ('-',))
+
+
+_default_extensions = getattr(settings, 'TEMPLATE_EXTENSIONS', ('html',))
+
 
 class TemplateNameResolverMixin(object):
     """
@@ -28,8 +18,8 @@ class TemplateNameResolverMixin(object):
     """
     
     template_suffixes = ('',)
-    template_suffix_separators = default_separators()
-    template_extensions = default_extensions()
+    template_suffix_separators = _default_separators
+    template_extensions = _default_extensions
 
     def __template_name_parts(self):
         for suffix in self.template_suffixes:
