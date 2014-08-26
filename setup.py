@@ -8,7 +8,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-canclon',
-    version='0.2.3',
+    version='0.3',
     packages=['canclon'],
     include_package_data=True,
     license='MIT',
@@ -29,5 +29,5 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
     install_requires=['django'],
-    tests_require=['django'],
+    tests_require=['django', 'tox', 'nose'],
 )
